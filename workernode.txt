@@ -1,6 +1,12 @@
 #!/bin/bash
-# <UDF name="access_key" label="temp-access_key" example="sadasdasdad" default="">
-# <UDF name="secret_key" label="temp-secret_key" example="sadasdasdad" default="">
+# <UDF name="hostname" label="hostname" example="some_host" default="">
+hostnamectl set-hostname $HOSTNAME
+cat <<EOF | tee /etc/hosts
+10.0.0.1 cka-control
+10.0.0.2 cka-worker1
+10.0.0.3 cka-worker2
+EOF
+
 cat <<EOF | tee /etc/modules-load.d/containerd.conf
 overlay
 br_netfilter

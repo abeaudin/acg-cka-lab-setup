@@ -55,6 +55,7 @@ Once this is down, you need to
 - Create a stackscript from the node.txt files as a cut and paste
 - make a note of the stackscript id.
 - create an API token 
+
 Then edit the terraform.tfvars file and add in values for
 - token
 - authorized_keys

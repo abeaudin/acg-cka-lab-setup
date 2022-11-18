@@ -100,3 +100,5 @@ terraform apply \
 ```
 Once deployment is complete, you should see three new Linodes in your Linode Cloud Manager account named cka-control, cka-worker1 and cka-worker2
 
+
+From this point, you can continue along with the acloud.guru courses using kubeadm and the other tooling to stand the cluster up.

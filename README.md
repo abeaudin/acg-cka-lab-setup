@@ -62,3 +62,21 @@ Then edit the terraform.tfvars file and add in values for
 - root_pass
 - myipaddress
 - stackscriptId
+
+and save the file
+
+### Install Terraform 
+
+Next step is to install Terraform. Run the below commands from the Linode shell-
+
+```
+ wget -O- https://apt.releases.hashicorp.com/gpg | gpg --dearmor | sudo tee /usr/share/keyrings/hashicorp-archive-keyring.gpg
+ ```
+ NOTE: This command will results in garbage on the screen, this is ok.
+ ```
+ echo "deb [signed-by=/usr/share/keyrings/hashicorp-archive-keyring.gpg] https://apt.releases.hashicorp.com $(lsb_release -cs) main" | sudo tee /etc/apt/sources.list.d/hashicorp.list
+ ```
+  ```
+  sudo apt update && sudo apt-get install terraform
+  ```
+

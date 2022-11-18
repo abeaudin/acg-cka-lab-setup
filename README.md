@@ -76,7 +76,27 @@ Next step is to install Terraform. Run the below commands from the Linode shell-
  ```
  echo "deb [signed-by=/usr/share/keyrings/hashicorp-archive-keyring.gpg] https://apt.releases.hashicorp.com $(lsb_release -cs) main" | sudo tee /etc/apt/sources.list.d/hashicorp.list
  ```
-  ```
-  sudo apt update && sudo apt-get install terraform
-  ```
+ 
+ ```
+ sudo apt update && sudo apt-get install terraform
+ ```
+ 
+ Next, we build the target linodes for the Kubernetes cluster, with the terraform files that are included in this repository, and pulled into the Linode Shell from the prior git command.
+
+
+1. Initialize the Linode terraform provider-
+```
+terraform init 
+```
+2. Next, we'll use the supplied terraform files to provision the LKE cluster. First, run the "terraform plan" command to view the plan prior to deployment-
+```
+terraform plan \
+ -var-file="terraform.tfvars"
+```
+3. Run "terraform apply" to deploy the plan to Linode and build your LKE cluster-
+```
+terraform apply \
+-var-file="terraform.tfvars"
+```
+Once deployment is complete, you should see three new Linodes in your Linode Cloud Manager account named cka-control, cka-worker1 and cka-worker2
 
